@@ -1,0 +1,13 @@
+.errors {
+    color: #FE0C0B;
+    background: transparent;
+    margin-top: 4px;
+    margin-bottom: 0;
+    font-weight: 400;
+    display: inline-block;
+    max-width: 100%;
+    line-height: 1.45;
+    font-size: 14px;
+    text-align: center;
+    font-family: "MaisonNeue", "Segoe UI", "Helvetica Neue", -apple-system, system-ui, BlinkMacSystemFont, Roboto, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}

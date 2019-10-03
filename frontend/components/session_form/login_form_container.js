@@ -2,9 +2,10 @@ import { login } from '../../actions/session_actions';
 import { connect } from 'react-redux';
 import SessionForm from './session_form';
 
-const msp = () => {
+const msp = ({ errors }) => {
     return {
-        formType: 'login'
+        errors: errors.session,
+        formType: 'login',
     };
 };
 

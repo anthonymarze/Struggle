@@ -1,0 +1,111 @@
+* {
+    box-sizing: border-box;
+}
+
+html body {
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, Roboto, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #242428;
+}
+
+.splash-container {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.splash-body {
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+ .splash-body-title {
+    font-size: 48px;
+    margin-top: 0;
+    margin-bottom: 80px;
+    text-align: center;
+    line-height: 1.2em;
+}
+
+.nav-header {
+    background: #fff;
+    border-bottom: solid 1px #e6e6eb;
+    display: block;
+}
+
+.nav-header-content {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-height: 55px;
+    max-width: 1248px;
+}
+
+.splash-logo {
+    height: 20px;
+    width: 95px;
+}
+
+.splash-logo strong {
+    font-size: 18px;
+    color: #fc4c02;
+}
+
+.splash-login-container a {
+    font-weight: 700;
+    color: #2d2d32;
+    padding: 6px 16px;
+    min-height: unset;
+    background-color: #fff;
+    border: solid 1px #ccccd1;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.splash-login-container a:hover {
+    background-color: #ccccd1;
+}
+
+.splash-footer {
+    margin-top: 0;
+    background-color: #2d2d32;
+    color: #fff;
+    font-size: 10px;
+    padding-top: 64px;
+    padding-bottom: 64px;
+}
+
+.splash-body-main-content {
+    display: flex;
+    justify-content: space-around;
+}
+
+.splash-body-image {
+    display: inline-block;
+    width: 100%;
+    max-width: 468px;
+    margin: 0 auto;
+}
+
+.splash-body-signup-form {
+    text-align: center;
+    padding-left: 64px;
+    padding-right: 64px;
+}
+
+.splash-body-signup-form a {
+    display: block;
+    color: #2d2d32;
+    background-color: #fff;
+    font-size: 14px;
+    position: relative;
+    text-align: center;
+    border: 1px solid #ccccd1;
+    margin-top: 16px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 50px;
+    padding-right: 50px;
+}

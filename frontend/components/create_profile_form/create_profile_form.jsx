@@ -5,11 +5,10 @@ class SessionForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: '',
-            password: '',
             first_name: '',
             last_name: '',
-            birthday: ''
+            birthday: '',
+            gender: '',
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.update = this.update.bind(this);
@@ -29,7 +28,7 @@ class SessionForm extends React.Component {
     }
 
     renderErrors() {
-        return(
+        return (
             <ul>
                 {this.props.errors.map((error, idx) => (
                     <li key={`error-${idx}`}>
@@ -48,7 +47,7 @@ class SessionForm extends React.Component {
             sessionFormText = 'log in with email'
         }
 
-        return(
+        return (
             <div className="session-form-root">
                 <header className="nav-header">
                     <div className="nav-header-content container">
@@ -67,22 +66,47 @@ class SessionForm extends React.Component {
                             className="session-form"
                             onSubmit={this.handleSubmit}>
                             <div className="session-form-text">{sessionFormText}</div>
-                            <input
-                                onChange={this.update('email')}
-                                type="text"
-                                value={this.state.email}
-                                placeholder="Your Email">
-                            </input>
+
+                            <label>First Name
+                                <input
+                                    onChange={this.update('first_name')}
+                                    type="text"
+                                    value={this.state.first_name}>
+                                </input>
+                            </label>
+
+                            <p className="errors">{this.props.errors}</p>
+                            <div className="session-form-spacing"></div>
+                            
+                            <label>Last Name
+                                <input
+                                    onChange={this.update('last_name')}
+                                    type="text"
+                                    value={this.state.last_name}>
+                                </input>
+                            </label>
 
                             <p className="errors">{this.props.errors}</p>
                             <div className="session-form-spacing"></div>
 
-                            <input
-                                onChange={this.update('password')}
-                                type="password"
-                                value={this.state.password}
-                                placeholder="Password">
-                            </input>
+                            <label>Birthday
+                                <input
+                                    onChange={this.update('birthday')}
+                                    type="date"
+                                    value={this.state.birthday}>
+                                </input>
+                            </label>
+
+                            <p className="errors">{this.props.errors}</p>
+                            <div className="session-form-spacing"></div>
+
+                            <label>Gender
+                                <input
+                                    onChange={this.update('gender')}
+                                    type="dropdown"
+                                    value={this.state.gender}>
+                                </input>
+                            </label>
 
                             <p className="errors">{this.props.errors}</p>
                             <div className="session-form-spacing"></div>
@@ -100,4 +124,15 @@ class SessionForm extends React.Component {
     }
 }
 
-export default SessionForm;
+export default CreateProfileForm;
+<label>First Name
+                                <input onChange={this.update('first_name')} type="text" value={this.state.first_name}></input>
+</label>
+
+    <label>Last Name
+                                <input onChange={this.update('last_name')} type="text" value={this.state.last_name}></input>
+    </label>
+
+    <label>bithday
+                                <input onChange={this.update('birthday')} type="date" value={this.state.birthday}></input>
+    </label>
