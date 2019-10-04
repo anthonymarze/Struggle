@@ -16,12 +16,13 @@
 
 .session-form {
     padding: 50px;
+    padding-top: 10px;
 }
 
 .session-form input {
     background: rgba(0,0,0,0.5);
     border: 1px solid #666;
-    color: #CCC;
+    color: #060504;
     padding: 10px 16px;
     min-width: 80px;
     display: block;
@@ -35,20 +36,15 @@
 }
 
 .session-form-text {
-    color: #99999e;
-    font-size: 12px;
+    color: #CCC;
+    font-size: 14px;
     margin-top: 20px;
     margin-bottom: 20px;
+    cursor: default;
 }
 
 .session-form-spacing {
     height: 20px;
-}
-
-#session-form-submit {
-    color: #FFFFFF;
-    background-color: #fc4c02;
-    border: 0;
 }
 
 ::placeholder {
@@ -62,4 +58,63 @@
     margin: 0;
     background: rgba(0,0,0,0.5);
     border-radius: 3px;
+    cursor: default;
+}
+
+.special-struggle {
+    color: #fc4c02;
+}
+
+.login-error {
+    background-color: #fe0c0b;
+    font-size: 14px;
+    line-height: 1.45;
+    text-align: center;
+    color: #fff;
+    margin: 0 auto;
+    padding: 16px;
+    position: relative;
+}
+
+#session-form-submit {
+    color: #FFFFFF;
+    font-weight: 700;
+    background-color: #fc4c02;
+    border: 0;
+    cursor: pointer;
+}
+
+#session-form-submit a {
+    color: #FFFFFF;
+    background-color: #fc4c02;
+    border: 0;
+    cursor: pointer;
+}
+
+.splash-logo a {
+    font-size: 26px;
+    color: #fc4c02;
+    text-decoration: none;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#session-form-submit:hover {
+    background-color: #f34902!important;
+}
+
+#session-form-submit a:hover {
+    background-color: #f34902!important;
+}
+
+.special-struggle:hover {
+    color: #f34902!important;
+}
+
+.session-form input:focus{
+  background-color: white;
+}
+
+.session-form input::placeholder {
+    color: #CCCCCC;
 }

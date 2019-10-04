@@ -6,6 +6,7 @@ const msp = ({ errors }) => {
     return {
         errors: errors.session,
         formType: 'login',
+        oppFormType: 'signup',
     };
 };
 

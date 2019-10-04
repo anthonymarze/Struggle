@@ -22,7 +22,7 @@ const Splash = ({currentUser, logout}) => {
                         <img className="splash-body-image" src="https://d3nn82uaxijpm6.cloudfront.net/assets/website/show_simple/devices-header-3349320fa849e6a297a3b0d64a6dfdef7307b0fe50f6329a459a0105b76ffff8.jpg"></img>
                     </div>
                     <div className="splash-body-signup-form">
-                        <Link to="/signup">Sign Up</Link>
+                        <Link to="/signup">Use my email</Link>
                     </div>
                 </div>
             </div>

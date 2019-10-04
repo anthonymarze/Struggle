@@ -1,0 +1,133 @@
+.onboarding-form-root {
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.onboarding-form-body {
+    margin-top: 50px;
+    padding-left: 32px;
+    padding-right: 32px;
+    border: solid 1px black;
+    border-radius: 4px;
+}
+
+.onboarding-form-text {
+    text-align: left;
+}
+
+.onboarding-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.ob-form-col-1 {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding-right: 16px;
+}
+
+.ob-form-col-2 {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding-left: 16px;
+}
+
+.ob-form-col-1 input {
+    box-shadow: none;
+    font-size: 17px;
+    height: 50px;
+    padding: 10px 16px;
+    min-width: 80px;
+    line-height: 1.3em;
+    color: #242428;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccccd1;
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+}
+
+.ob-form-col-2 input {
+    box-shadow: none;
+    font-size: 17px;
+    height: 50px;
+    padding: 10px 16px;
+    min-width: 80px;
+    line-height: 1.3em;
+    color: #242428;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccccd1;
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+}
+
+.ob-form-col-1 input:focus {
+    border-color: #242428;
+}
+
+.ob-form-col-2 input:focus {
+    border-color: #242428;
+}
+
+.ob-form-col-1 label {
+    font-size: 12px;
+    font-weight: normal;
+    margin-bottom: 8px;
+}
+
+.ob-form-col-2 label {
+    font-size: 12px;
+    font-weight: normal;
+    margin-bottom: 8px;
+}
+
+.onboarding-form-text h2 {
+    word-break: break-word;
+    margin-bottom: 9px;
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 28px;
+}
+
+.onboarding-form-text p {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #2d2d32;
+    font-size: 17px;
+    line-height: 1.45;
+}
+
+.continue {
+    padding-left: 32px;
+    padding-right: 32px;
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: 700;
+    line-height: normal;
+    padding: 10px 30px;
+    display: inline-block;
+}
+
+.continue-flex-box {
+    text-align: right;
+    padding: 32px;
+    padding-top: 4px;
+    padding-right: 0px;
+}

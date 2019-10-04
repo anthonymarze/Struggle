@@ -1,10 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+// this.props.location.state.email,
+// this.props.location.state.password,
 
-class SessionForm extends React.Component {
+class CreateProfileForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            email: '',
+            password: '',
             first_name: '',
             last_name: '',
             birthday: '',
@@ -12,7 +16,7 @@ class SessionForm extends React.Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.update = this.update.bind(this);
-        // this.renderErrors = this.renderErrors.bind(this);
+        this.renderErrors = this.renderErrors.bind(this);
     }
 
     handleSubmit(e) {
@@ -28,96 +32,73 @@ class SessionForm extends React.Component {
     }
 
     renderErrors() {
-        return (
-            <ul>
-                {this.props.errors.map((error, idx) => (
-                    <li key={`error-${idx}`}>
-                        {error}
-                    </li>
-                ))}
-            </ul>
-        );
+        return "ob-errors"
     }
 
     render() {
-        let sessionFormText = '';
-        if (this.props.formType === 'signup') {
-            sessionFormText = 'sign up with your email address'
-        } else if (this.props.formType === 'login') {
-            sessionFormText = 'log in with email'
-        }
 
         return (
-            <div className="session-form-root">
-                <header className="nav-header">
-                    <div className="nav-header-content container">
-                        <div className="splash-logo">
-                            <strong>Struggle</strong>
+            <div className="onboarding-form-root">
+                <div className="onboarding-form-body">
+                        <div className="onboarding-form-text">
+                            <h2>Create your profile</h2>
+                            <p>This will give you a place to store workouts and struggle routes.</p>
                         </div>
-                        <nav className="splash-login-container">
-                            <Link to="/signup">Sign Up</Link>
-                        </nav>
-                    </div>
-                </header>
-                <div className="session-form-body">
-                    <div className="session-form-container">
-                        <h1 className="please-join h1">Join Stuggle today, it's free.</h1>
                         <form
-                            className="session-form"
+                            className="onboarding-form"
                             onSubmit={this.handleSubmit}>
-                            <div className="session-form-text">{sessionFormText}</div>
 
-                            <label>First Name
+                            <div className="ob-form-col-1 ">
+                                <label id={this.renderErrors()}>First Name</label>
                                 <input
                                     onChange={this.update('first_name')}
+                                    id={this.renderErrors()}
                                     type="text"
                                     value={this.state.first_name}>
                                 </input>
-                            </label>
-
-                            <p className="errors">{this.props.errors}</p>
-                            <div className="session-form-spacing"></div>
-                            
-                            <label>Last Name
-                                <input
-                                    onChange={this.update('last_name')}
-                                    type="text"
-                                    value={this.state.last_name}>
-                                </input>
-                            </label>
-
-                            <p className="errors">{this.props.errors}</p>
-                            <div className="session-form-spacing"></div>
-
-                            <label>Birthday
+                                
+                                <div className="session-form-spacing"></div>
+                                
+                                <label id={this.renderErrors()}>Birthday</label>
                                 <input
                                     onChange={this.update('birthday')}
+                                    id={this.renderErrors()}
                                     type="date"
                                     value={this.state.birthday}>
                                 </input>
-                            </label>
 
-                            <p className="errors">{this.props.errors}</p>
-                            <div className="session-form-spacing"></div>
+                                <div className="session-form-spacing"></div>
+                            </div>
 
-                            <label>Gender
+                            <div className="ob-form-col-2">
+                                <label id={this.renderErrors()}>Last Name</label>
+                                <input
+                                    onChange={this.update('last_name')}
+                                    id={this.renderErrors()}
+                                    type="text"
+                                    value={this.state.last_name}>
+                                </input>
+
+                                <div className="session-form-spacing"></div>
+
+                                <label>Gender</label>
                                 <input
                                     onChange={this.update('gender')}
-                                    type="dropdown"
+                                    type="text"
                                     value={this.state.gender}>
                                 </input>
-                            </label>
 
-                            <p className="errors">{this.props.errors}</p>
-                            <div className="session-form-spacing"></div>
-
-                            <input
-                                id="session-form-submit"
-                                type="submit"
-                                value={this.props.formType}>
-                            </input>
+                                <div className="session-form-spacing"></div>
+                            </div>
                         </form>
-                    </div>
+                        <div className="continue-flex-box">
+                            <input
+                            id="session-form-submit"
+                            className="continue"
+                            type="submit"
+                            value="continue">
+                            </input>
+                        </div>
                 </div>
             </div>
         )
@@ -125,14 +106,3 @@ class SessionForm extends React.Component {
 }
 
 export default CreateProfileForm;
-<label>First Name
-                                <input onChange={this.update('first_name')} type="text" value={this.state.first_name}></input>
-</label>
-
-    <label>Last Name
-                                <input onChange={this.update('last_name')} type="text" value={this.state.last_name}></input>
-    </label>
-
-    <label>bithday
-                                <input onChange={this.update('birthday')} type="date" value={this.state.birthday}></input>
-    </label>

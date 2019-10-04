@@ -11,3 +11,8 @@
     text-align: center;
     font-family: "MaisonNeue", "Segoe UI", "Helvetica Neue", -apple-system, system-ui, BlinkMacSystemFont, Roboto, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
+
+#ob-errors {
+    color: #db001b;
+    border-color: #db001b;
+}

@@ -1,16 +1,18 @@
-import { createProfile } from '../../actions/session_actions';
+import { signup } from '../../actions/session_actions';
 import { connect } from 'react-redux';
 import CreateProfileForm from './create_profile_form';
 
-const msp = ({ errors }) => {
+const msp = ({ errors, email, password }) => {
     return {
-        errors: errors.session
+        errors: errors.session,
+        email: email,
+        password: password,
     };
 };
 
 const mdp = (dispatch) => {
     return {
-        processForm: (user) => dispatch(createProfile(user))
+        processForm: (user) => dispatch(signup(user))
     };
 };
 
