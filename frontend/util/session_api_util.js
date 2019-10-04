@@ -19,4 +19,11 @@ export const logout = () => {
         method: 'DELETE',
         url: '/api/session',
     })
-};
+}
+
+export const verifyEmail = (email) => {
+    return $.ajax({
+        method: 'GET',
+        url: `api/users/exists?email=${email}`
+    })
+}

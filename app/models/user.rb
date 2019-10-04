@@ -3,7 +3,7 @@ class User < ApplicationRecord
     validates :email, :session_token, uniqueness: true
     validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
     validates :password, length: { minimum: 8, allow_nil: true }
-    validates :gender, inclusion: {in: ['Male', 'Female', 'Other']}
+    validates :gender, inclusion: {in: ['Male', 'Female', 'Other'], allow_blank: true}
 
     after_initialize :ensure_session_token
 

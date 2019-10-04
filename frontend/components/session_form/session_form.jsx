@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
     constructor(props) {
         super(props);
+        this.emailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         this.state = {
             email: '',
             password: '',
@@ -15,28 +16,45 @@ class SessionForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.update = this.update.bind(this);
         this.renderErrors = this.renderErrors.bind(this);
-        // this.renderLoginError = this.renderLoginError.bind(this);
     }
-
-    // componentDidMount() {
-    //     this.setState(this.state.errors, () => this.props.errors = []) 
-    // }
 
     handleSubmit(e) {
         e.preventDefault();
-        if(this.props.formType === 'signup'){
-            this.props.history.push({pathname: "/signup/onboarding", state: {email: this.state.email, password: this.state.password}})
-            // <Redirect to="/signup/onboarding" />
+        if (this.validateFields()) {
+            this.props.verifyEmail(this.state.email).then(
+                () => this.props.history.push({ pathname: "/signup/onboarding", state: { email: this.state.email, password: this.state.password } })
+            ).fail((response) => {
+                this.props.receiveSessionErrors(response.responseJSON)
+            });
+        } else if (this.props.formType === 'login') {
+            const user = Object.assign({}, this.state);
+            this.props.processForm(user);
         } else {
-        const user = Object.assign({}, this.state);
-        this.props.processForm(user);
+            let errors = [];
+
+            if (!this.state.email.match(this.emailformat)) {
+                errors.push('Email is not valid')
+            }
+            if (this.state.password.length < 8) {
+                errors.push('Password must be 8 characters')
+            }
+            this.props.receiveSessionErrors(errors);
         }
+    }
+
+    componentDidMount(){
+        this.props.removeSessionErrors()
+    }
+
+    validateFields() {
+        const {email, password} = this.state;
+        return password.length >= 8 && email.match(this.emailformat)
     }
 
     update(field) {
         return (e) => this.setState({
             [field]: e.currentTarget.value
-        });
+        })
     }
 
     renderErrors(inputType) {
@@ -52,6 +70,7 @@ class SessionForm extends React.Component {
         if (errorsObject[inputType]) {
             return errorsObject[inputType][0]
         }
+        return false;
     }
 
     isLoginError() {

@@ -1,4 +1,5 @@
-import { signup } from '../../actions/session_actions';
+import { signup, removeSessionErrors, receiveSessionErrors } from '../../actions/session_actions';
+import { verifyEmail } from '../../util/session_api_util';
 import { connect } from 'react-redux';
 import SessionForm from './session_form';
 
@@ -12,7 +13,10 @@ const msp = ({ errors }) => {
 
 const mdp = (dispatch) => {
     return {
-        processForm: (user) => dispatch(signup(user))
+        processForm: (user) => dispatch(signup(user)),
+        removeSessionErrors: () => dispatch(removeSessionErrors()),
+        verifyEmail: (email) => verifyEmail(email),
+        receiveSessionErrors: (errors) => dispatch(receiveSessionErrors(errors)),
     };
 };
 

@@ -47,6 +47,7 @@
   },
   "homepage": "https://github.com/anthonymarze/Struggle#readme",
   "devDependencies": {
-    "css-loader": "^3.2.0"
+    "css-loader": "^3.2.0",
+    "redux-logger": "^3.0.6"
   }
 }
