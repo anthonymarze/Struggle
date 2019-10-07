@@ -1,0 +1,38 @@
+.routes-link a {
+    font-size: 14px;
+    line-height: 18px;
+    text-decoration: none;
+    color: #2d2d32;
+}
+
+.dash-nav-head div{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-right: 50%;
+}
+
+.dash-nav-head .routes-link a{
+    margin-top: 25%;
+}
+
+.dash-nav-head div svg{
+    margin-top: 100%;
+}
+
+.logout-btn {
+    color: #FFFFFF;
+    font-weight: 700;
+    background-color: #fc4c02;
+    border: 0;
+    cursor: pointer;
+    padding: 6px 16px;
+    border-radius: 4px;
+}
+
+.dash-body {
+    background-color: #f5f5fa;
+    display: block;
+    height: 1024px;
+    width: 100%;
+}

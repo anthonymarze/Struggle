@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 class SessionForm extends React.Component {
     constructor(props) {
@@ -20,7 +20,7 @@ class SessionForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
-        if (this.validateFields()) {
+        if (this.props.formType === 'signup' && this.validateFields()) {
             this.props.verifyEmail(this.state.email).then(
                 () => this.props.history.push({ pathname: "/signup/onboarding", state: { email: this.state.email, password: this.state.password } })
             ).fail((response) => {
@@ -28,7 +28,12 @@ class SessionForm extends React.Component {
             });
         } else if (this.props.formType === 'login') {
             const user = Object.assign({}, this.state);
-            this.props.processForm(user);
+            
+            this.props.processForm(user).then(
+                () => {
+                    
+                    this.props.history.push("/dashboard")
+                })
         } else {
             let errors = [];
 

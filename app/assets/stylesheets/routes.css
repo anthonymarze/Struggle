@@ -1,0 +1,114 @@
+.routes-fake-link {
+    font-size: 14px;
+    line-height: 18px;
+    text-decoration: none;
+    color: #2d2d32;
+    cursor: default;
+    margin-top: 10px;
+}
+
+.route-sub-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 55px;
+    max-width: 1248px;
+    border-bottom: 1px solid #ccccd1;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+.rsh-1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.rsh-2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 50px;
+}
+
+.rsh-2 p {
+    width: 330px;
+    padding-right: 15%;
+    cursor: default;
+}
+
+.rsh-2 img {
+    object-fit: contain;
+}
+
+.rt-btn {
+    margin-right: 135px;
+}
+
+.rt-h2 {
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 41px;
+    margin-bottom: 20px;
+    margin-top: 0px;
+    cursor: default;
+}
+
+.route-body {
+    width: 100%;
+    height: 500px;
+}
+
+.route-footer {
+    background-color: transparent;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 55px;
+    max-width: 1248px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+.grey-b {
+    width: 100%;
+    height: 250px;
+    background-color: #f5f5fa;
+    border-top: 1px solid #ccccd1; 
+}
+
+/* .route-footer-activities {
+    margin-left: 130px;
+} */
+
+.route-footer-activities h3 {
+    padding-top: 50px;
+    font-size: 20px;
+    font-weight: 300;
+    cursor: default;
+}
+
+.route-logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 55px;
+    max-width: 1248px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+#logo {
+    display: flex;
+    flex-direction: column;
+    cursor: default;
+}
+
+#logo a {
+    color: #99999e;
+}
