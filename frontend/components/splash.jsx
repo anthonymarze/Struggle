@@ -27,7 +27,15 @@ const Splash = ({currentUser, logout}) => {
                 </div>
             </div>
             <footer className="splash-footer">
+                <div className="route-logo container">
+                    <div className="splash-logo" id="logo-w">
+                        <Link to={"/"}>Struggle</Link>
+                        <p>©2000</p>
+                    </div>
+                    <div>
 
+                    </div>
+                </div>
             </footer>
         </div>
     )

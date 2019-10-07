@@ -24,7 +24,10 @@ class CreateProfileForm extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         const user = Object.assign({}, this.state);
-        this.props.processForm(user);
+        this.props.processForm(user).then(
+            () => {
+            this.props.history.push("/dashboard")
+        });
     }
 
     update(field) {
@@ -51,7 +54,17 @@ class CreateProfileForm extends React.Component {
     render() {
 
         return (
-            <div className="onboarding-form-root">
+            <div className="onboarding-form-root session-form-root opc">
+                <header className="nav-header">
+                    <div className="nav-header-content container">
+                        <div className="splash-logo">
+                            <Link to={"/"}>Struggle</Link>
+                        </div>
+                        <div className="splash-login-container">
+                            ghg
+                        </div>
+                    </div>
+                </header>
                 <div className="onboarding-form-body">
                         <div className="onboarding-form-text">
                             <h2>Create your profile</h2>
@@ -94,11 +107,15 @@ class CreateProfileForm extends React.Component {
                                     <div className="session-form-spacing"></div>
 
                                     <label>Gender</label>
-                                    <input
+                                    <select name="gender"
                                         onChange={this.update('gender')}
                                         type="text"
                                         value={this.state.gender}>
-                                    </input>
+                                        <option value="" disabled selected></option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Other">Other</option>
+                                    </select>
 
                                     <div className="session-form-spacing"></div>
                                 </div>

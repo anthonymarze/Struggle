@@ -69,6 +69,7 @@ html body {
 .splash-login-container a:hover {
     background-color: #f4f4f6;
     border: 1px solid #ccccd1;
+    transition: 0.3s;
 }
 
 .splash-footer {
@@ -76,8 +77,8 @@ html body {
     background-color: #2d2d32;
     color: #fff;
     font-size: 10px;
-    padding-top: 64px;
-    padding-bottom: 64px;
+    padding-top: 24px;
+    padding-bottom: 100px;
 }
 
 .splash-body-main-content {
@@ -120,4 +121,13 @@ html body {
 .splash-body-signup-form a:hover {
     background-color: #ccccd1;
     border: 1px solid #242428;
+    transition: 0.3s;
+}
+
+#logo-w a {
+    color: #ffffff;
+}
+
+#logo-w p {
+    color: #81846b
 }

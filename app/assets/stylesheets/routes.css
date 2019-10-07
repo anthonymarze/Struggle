@@ -81,10 +81,6 @@
     border-top: 1px solid #ccccd1; 
 }
 
-/* .route-footer-activities {
-    margin-left: 130px;
-} */
-
 .route-footer-activities h3 {
     padding-top: 50px;
     font-size: 20px;
@@ -100,7 +96,7 @@
     min-height: 55px;
     max-width: 1248px;
     padding-top: 30px;
-    padding-bottom: 20px;
+    padding-bottom: 100px;
 }
 
 #logo {

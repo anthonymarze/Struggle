@@ -77,6 +77,40 @@
     width: 100%;
 }
 
+.ob-form-col-2 option {
+    box-shadow: none;
+    font-size: 17px;
+    height: 50px;
+    padding: 10px 16px;
+    min-width: 80px;
+    line-height: 1.3em;
+    color: #242428;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccccd1;
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+}
+
+
+.ob-form-col-2 select {
+    box-shadow: none;
+    font-size: 17px;
+    height: 50px;
+    padding: 10px 16px;
+    min-width: 80px;
+    line-height: 1.3em;
+    color: #242428;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccccd1;
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+}
+
+
 .ob-form-col-1 input:focus {
     border-color: #242428;
 }

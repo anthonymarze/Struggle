@@ -30,9 +30,19 @@
     border-radius: 4px;
 }
 
+.logout-btn:hover {
+    background-color: #f34902;
+    filter: brightness(85%);
+    transition: 0.3s;
+}
+
 .dash-body {
     background-color: #f5f5fa;
     display: block;
     height: 1024px;
     width: 100%;
+}
+
+.opc {
+    filter: brightness(50%);
 }

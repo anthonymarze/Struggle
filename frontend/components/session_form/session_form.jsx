@@ -126,7 +126,7 @@ class SessionForm extends React.Component {
                             
                             <div className="session-form-text">{sessionFormText}</div>
                             
-                            <input
+                            <input className="txt"
                                 onChange={this.update('email')}
                                 type="text"
                                 value={this.state.email}
@@ -136,7 +136,7 @@ class SessionForm extends React.Component {
                             <p className="errors">{this.renderErrors('Email')}</p>
                             <div className="session-form-spacing"></div>
 
-                            <input
+                            <input className="txt"
                                 onChange={this.update('password')}
                                 type="password"
                                 value={this.state.password}
