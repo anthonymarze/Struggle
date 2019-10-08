@@ -4,9 +4,10 @@
             user: current_user).html_safe %>
     </script>
 <% end %>
+
 <script type="text/javascript">
   window.googleAPIKey = "<%= Rails.application.credentials.google[:api_key] %>"
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= window.googleAPIKey %>" charset="utf-8"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google[:api_key] %>" charset="utf-8"></script>
 
 <main id="root">NOT GOOD</main>
