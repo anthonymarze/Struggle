@@ -1,27 +1,33 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Map from '../map/map';
 
 class NewRoutes extends React.Component {
+
+    constructor(props) {
+        super(props);
+    }
 
     render() {
         return (
             <div>
-                <header className="nav-header">
-                    <div className="nav-header-content container dash-nav-head">
-                        <div>
-                            <div className="splash-logo">
+                <header className="bld-header">
+                        <div className="bld-2">
+                            <div className="splash-logo bld-logo">
                                 <Link to={"/"}>Struggle</Link>
                             </div>
-                            <div className="routes-fake-link">
+                            <p className="bld-fake-link">
                                 ROUTE BUILDER
-                            </div>
+                            </p>
                         </div>
 
-                        <div>
+                        <div className="bld-exit">
                             <Link to={"/routes"}>Exit Builder</Link>
                         </div>
-                    </div>
                 </header>
+                <div>
+                    <Map />
+                </div>
             </div>
         )
     }

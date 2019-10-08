@@ -1,0 +1,40 @@
+.bld-fake-link {
+    line-height: 15px;
+    font-size: 17px;
+    font-weight: 600;
+    margin-left: 30px;
+    cursor: default;
+}
+
+.bld-2 {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.bld-header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 50px;
+}
+
+.bld-exit a {
+    color: #999;
+    font-size: 13px;
+    text-decoration: none;
+    cursor: pointer;
+    width: 100px;
+    text-align: right;
+    line-height: 50px;
+}
+
+.bld-exit a:hover {
+    text-decoration: underline;
+}
+
+.bld-logo {
+    line-height: 50px;
+}

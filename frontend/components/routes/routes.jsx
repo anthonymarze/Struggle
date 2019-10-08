@@ -1,23 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import Map from '../map/map';
 
 class Routes extends React.Component {
 
     constructor(props){
         super(props);
         this.createNewRoutes = this.createNewRoutes.bind(this);
-        this.mapCenter = { lat: 44.3064688, lng: -76.0005896 };
     }
 
     createNewRoutes() {
-        debugger
-        return () => this.props.history.push("/routes/new")
+        this.props.history.push("/routes/new");
     }
 
-    render(){
+    render() {
         return (
             <div>
                 <header className="nav-header">
@@ -50,7 +47,6 @@ class Routes extends React.Component {
                     </div>
                 </div>
                 <div className="route-body">
-                    <Map center={this.mapCenter}/>
                 </div>
                 <div className="grey-b">
                     <div className="route-footer container">
@@ -80,4 +76,4 @@ class Routes extends React.Component {
 
 }
 
-export default Routes;
+export default withRouter(Routes);

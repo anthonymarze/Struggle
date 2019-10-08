@@ -17,6 +17,7 @@
  *= require errors
  *= require dashboard
  *= require routes
+ *= require new_routes
  */
 
  body {
@@ -30,8 +31,13 @@
     padding-right: 16px;
 }
 
- .h1 {
+.h1 {
     font-size: 32px;
     font-weight: 700;
     line-height: 41px;
+}
+
+#map {
+    width: 100%;
+    height: 900px;
 }

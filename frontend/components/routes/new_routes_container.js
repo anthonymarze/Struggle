@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import NewRoutes from './routes';
-import { logout } from '../../actions/session_actions'
+import NewRoutes from './new_routes';
+import { fetchRoute } from '../../actions/route_actions';
 
 const msp = state => {
     return ({
@@ -10,7 +10,7 @@ const msp = state => {
 
 const mdp = dispatch => {
     return ({
-        logout: () => dispatch(logout())
+        createRoute: (route) => dispatch(fetchRoute(route))
     })
 }
 
