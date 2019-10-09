@@ -7,6 +7,8 @@ class Routes extends React.Component {
 
     constructor(props){
         super(props);
+        this.id = this.props.state.session.id;
+        this.routes = this.props.state.users[this.id].routes;
         this.createNewRoutes = this.createNewRoutes.bind(this);
     }
 
@@ -46,7 +48,16 @@ class Routes extends React.Component {
                         <img src="https://d3nn82uaxijpm6.cloudfront.net/assets/routes/route-list-mobile-upsell-c1aec554d010e3c86411ad560615802162318875f086d1e3ed4850d6c7014b8f.png" />
                     </div>
                 </div>
-                <div className="route-body">
+                <div className="route-body container">
+                    <div className="type-select">
+                        <form className="type-select-form">
+                            <button className="run-btn">Cycling</button>
+                            <button className="run-btn">Running</button>
+                        </form>
+                    </div>
+                    <div className="static-map-container">
+                        <img src={"https://maps.googleapis.com/maps/api/staticmap?size=300x300&maptype=roadmap&path=color:0xff0000ff|weight:5|" + this.routes[0].coordinate_string + "&key=" + window.googleAPIKey} />
+                    </div>
                 </div>
                 <div className="grey-b">
                     <div className="route-footer container">

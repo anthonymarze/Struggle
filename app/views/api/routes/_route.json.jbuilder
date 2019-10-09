@@ -1,1 +1,1 @@
-json.extract! route, :id, :name
+json.extract! route, :id, :name, :author

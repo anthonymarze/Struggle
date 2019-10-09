@@ -25,8 +25,8 @@ class NewRoutes extends React.Component {
                             <Link to={"/routes"}>Exit Builder</Link>
                         </div>
                 </header>
-                <div>
-                    <Map />
+                <div className="map-container">
+                    <Map props={this.props}/>
                 </div>
             </div>
         )

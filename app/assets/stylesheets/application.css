@@ -40,7 +40,6 @@
 #map {
     width: 100%;
     height: 870px;
-    margin-top: 50px;
     position: relative;
 }
 
@@ -52,18 +51,13 @@
     z-index: 1;
     height: 50px;
     width: 100%;
+    top: 0px;
     padding-left: 20px;
     padding-right: 20px;
     box-shadow: 2px 2px 2px rgba(0,0,0,0.15);
     overflow: hidden;
     background-color: #F1F1F1;
     text-align: center;
-}
-
-#warnings-panel{
-    visibility:hidden;
-    height:0;
-    width:0;
 }
 
 #bottom-panel {
@@ -111,6 +105,10 @@
     justify-content: space-between;
 }
 
+#map-display-container {
+    position: relative;
+    padding-top: 50px;
+}
 /* #map-display-container {
     height: 100vh;
 } */

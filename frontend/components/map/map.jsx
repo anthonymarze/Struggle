@@ -6,14 +6,22 @@ class Map extends React.Component {
     constructor(props) {
         super(props);
         this.calculateAndDisplayRoute = this.calculateAndDisplayRoute.bind(this);
-        this.setMapOnAll = this.setMapOnAll.bind(this);
-        this.showMarkers = this.showMarkers.bind(this);
-        this.addMarker = this.addMarker.bind(this);
-        this.deleteMarkers = this.deleteMarkers.bind(this);
-        this.clearMarkers = this.clearMarkers.bind(this);
+        this.addWaypoint = this.addWaypoint.bind(this);
+        this.clearWaypoints = this.clearWaypoints.bind(this);
         this.listenForClick = this.listenForClick.bind(this);
-        this.markers = [];
+        this.listenForDirectionsChange = this.listenForDirectionsChange.bind(this);
         this.waypts = [];
+        this.addStart = this.addStart.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        // this.createCoordinateString = this.createCoordinateString.bind(this);
+        this.update = this.update.bind(this);
+
+        this.state = {
+            name: "",
+            coordinate_string: "",
+            author_id: this.props.props.state.session.id,
+        }
+        this.exportString = "";
     }
 
     componentDidMount() {
@@ -29,70 +37,81 @@ class Map extends React.Component {
             map: this.map
         });
         
-        this.calculateAndDisplayRoute(
-            this.directionsRenderer, this.directionsService);
-        
-        this.listenForMove();
         this.listenForClick();
         this.listenForDirectionsChange();
-        this.labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        this.labelIndex = 0;
     }
     
-    addMarker(location, map) {
-        let marker = new google.maps.Marker({
-            position: location,
-            label: this.labels[this.labelIndex++ % this.labels.length],
-            map: map,
-        })
-        this.markers.push(marker)
+    addWaypoint(location) {
+
         this.waypts.push({
-            location: marker.getPosition(),
-            stopover: false
-        });
+            location: location,
+            stopover: false,
+        })
     }
 
-    setMapOnAll(map) {
-        for (let i = 0; i < this.markers.length; i++) {
-            this.markers[i].setMap(map);
+    addStart() {
+        if (this.waypts.length > 0){
+            new google.maps.Marker({
+                location: this.waypts[0].location
+            })
         }
     }
 
-    clearMarkers() {
-        this.setMapOnAll(null);
-    }
-
-    showMarkers() {
-        this.setMapOnAll(this.map);
-    }
-    
-    deleteMarkers() {
-        this.clearMarkers();
-        this.markers = [];
+    clearWaypoints() {
         this.waypts = [];
-        debugger
-        this.calculateAndDisplayRoute(this.directionsRenderer, this.directionsService)
-        debugger
+        this.directionsRenderer.setMap(null);
+        this.calculateAndDisplayRoute(this.directionsRenderer, this.directionsService);
     }
 
     calculateAndDisplayRoute(directionsRenderer, directionsService) {
-        directionsService.route({
-            origin: { lat: 40.751370, lng: - 73.983982 },
-            destination: { lat: 40.732490, lng: - 73.991023 },
-            waypoints: this.waypts,
-            travelMode: 'WALKING',
-        }, (response, status) => {
-            if (status === 'OK') {
-                document.getElementById('warnings-panel').innerHTML =
-                    '<b>' + response.routes[0].warnings + '<b>';
-                directionsRenderer.setDirections(response);
-            } else {
-                window.alert('Directions request failed due to ' + status);
-            }
-        });
+        if (this.waypts.length > 1 ) {
+            let trueWaypts = this.waypts.slice(this.waypts[1], this.waypts.length);
+
+            directionsService.route({
+                origin: this.waypts[0].location,
+                destination: this.waypts[this.waypts.length - 1].location,
+                waypoints: trueWaypts,
+                travelMode: 'WALKING',
+            }, (response, status) => {
+                if (status === 'OK') {
+                    
+                    let expStr = "";
+                    
+                    response.routes[0].legs[0].steps.forEach(step => {
+                        let start = step.start_location.toString();
+                        // console.log(start);
+                        start = start.slice(1, start.length - 1);
+                        // console.log(start);
+
+                        let end = step.end_location.toString();
+                        // console.log(end);
+                        end = end.slice(1, end.length - 1);
+                        // console.log(end);
+
+                        let comb = start.concat("|", end);
+
+                        expStr = expStr.concat("|", comb);
+                        expStr = expStr.replace(/\s+/g, '');
+                    });
+
+                    // console.log(expStr);
+                    this.exportString = (expStr.slice(1));
+                    directionsRenderer.setDirections(response);
+                } 
+            });
+        }
+        
     }
 
     computeTotalDistance(result) {
+        // this.exportString = this.origin.toString();
+
+        // for(let i = 0; i < this.waypts.length; i++) {
+        //     this.exportString = this.exportString.concat(this.waypts[i].location.toString())
+        // }
+
+        // this.exportString.concat(this.destination);
+
         let total = 0;
         let myroute = result.routes[0];
         for (let i = 0; i < myroute.legs.length; i++) {
@@ -104,25 +123,10 @@ class Map extends React.Component {
 
     listenForClick() {
         google.maps.event.addListener(this.map, 'click', (event) => {
-            this.addMarker(event.latLng, this.map);
+            this.addWaypoint(event.latLng, this.map);
+            this.addStart();
             this.calculateAndDisplayRoute(this.directionsRenderer, this.directionsService);
         })
-    } 
-    
-    listenForMove() {
-        google.maps.event.addListener(this.map, 'idle', () => {
-            const bounds = this.map.getBounds();
-
-            console.log('center',
-                bounds.getCenter().lat(),
-                bounds.getCenter().lng());
-            console.log("north east",
-                bounds.getNorthEast().lat(),
-                bounds.getNorthEast().lng());
-            console.log("south west",
-                bounds.getSouthWest().lat(),
-                bounds.getSouthWest().lng());
-        });
     }
 
     listenForDirectionsChange() {
@@ -131,18 +135,43 @@ class Map extends React.Component {
         });
     }
 
+    handleSubmit(e) {
+        e.preventDefault();
+        this.state.coordinate_string = this.exportString;
+        const route = Object.assign({}, this.state)
+        this.props.props.createRoute(route).then(
+            () => this.props.props.history.push("/routes")
+        )
+    }
+
+    update(field) {
+        return (e) => this.setState({
+            [field]: e.currentTarget.value
+        })
+    }
+
     render() {
         return (
             <div id="map-display-container">
                 <div id="top-panel">
                     <div className="map-inputs">
-                        <button onClick={this.clearMarkers}>Hide Markers</button>
-                        <button onClick={this.showMarkers}>Show All Markers</button>
-                        <button onClick={this.deleteMarkers}>Delete Markers</button>
+                        <button onClick={this.clearWaypoints}>Clear</button>
                     </div>
-                    <input id="save-btn" type="submit" value="save"></input>
+                    <form onSubmit={this.handleSubmit}>
+                        <input className="txt"
+                            onChange={this.update('name')}
+                            type="text"
+                            value={this.state.name}
+                            placeholder="Route Name">
+                        </input>
+
+                        <input
+                            id="save-btn"
+                            type="submit"
+                            value="save">    
+                        </input>
+                    </form>
                 </div>
-                <div id="warnings-panel"></div> 
                 <div id="bottom-panel">
                     <p>Total Distance: <span id="total"></span></p>
                 </div>

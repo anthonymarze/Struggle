@@ -24,3 +24,9 @@ export const fetchRoute = (id) => (dispatch) => {
         return dispatch(receiveRoutes(route))
     })
 };
+
+export const createRoute = (route) => (dispatch) => {
+    return APIUtil.createRoute(route).then(route => {
+        return dispatch(receiveRoute(route))
+    })
+};

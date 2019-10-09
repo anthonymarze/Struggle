@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import NewRoutes from './new_routes';
-import { fetchRoute } from '../../actions/route_actions';
+import { fetchRoutes, createRoute } from '../../actions/route_actions'
 
 const msp = state => {
     return ({
@@ -10,8 +10,9 @@ const msp = state => {
 
 const mdp = dispatch => {
     return ({
-        createRoute: (route) => dispatch(fetchRoute(route))
-    })
-}
+        fetchRoutes: () => dispatch(fetchRoutes()),
+        createRoute: route => dispatch(createRoute(route)),
+    });
+};
 
 export default connect(msp, mdp)(NewRoutes)
