@@ -118,7 +118,7 @@
 }
 
 .txt:focus {
-background-color: white;
+  background-color: white;
   color: #060504;
   box-shadow: 0 0px 15px 0 rgba(255, 255, 255, 1);
   border: white;

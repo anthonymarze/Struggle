@@ -18,6 +18,8 @@
  *= require dashboard
  *= require routes
  *= require new_routes
+ *= require activities_form
+ *= require activities_index
  */
 
  body {

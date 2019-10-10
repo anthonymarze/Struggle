@@ -20,13 +20,19 @@ export const fetchRoutes = (routes) => (dispatch) => {
 };
 
 export const fetchRoute = (id) => (dispatch) => {
-    return APIUtil.fetchRoutes(id).then(route => {
-        return dispatch(receiveRoutes(route))
+    return APIUtil.fetchRoute(id).then(route => {
+        return dispatch(receiveRoute(route))
     })
 };
 
 export const createRoute = (route) => (dispatch) => {
     return APIUtil.createRoute(route).then(route => {
         return dispatch(receiveRoute(route))
+    })
+};
+
+export const fetchUserRoutes = (user_id) => (dispatch) => {
+    return APIUtil.fetchUserRoutes(user_id).then(routes => {
+        return dispatch(receiveRoutes(routes))
     })
 };

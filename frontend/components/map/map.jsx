@@ -8,18 +8,19 @@ class Map extends React.Component {
         this.calculateAndDisplayRoute = this.calculateAndDisplayRoute.bind(this);
         this.addWaypoint = this.addWaypoint.bind(this);
         this.clearWaypoints = this.clearWaypoints.bind(this);
-        this.listenForClick = this.listenForClick.bind(this);
-        this.listenForDirectionsChange = this.listenForDirectionsChange.bind(this);
         this.waypts = [];
+        this.start = null;
         this.addStart = this.addStart.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        // this.createCoordinateString = this.createCoordinateString.bind(this);
         this.update = this.update.bind(this);
 
         this.state = {
             name: "",
             coordinate_string: "",
             author_id: this.props.props.state.session.id,
+            distance: 0,
+            elevation: 0,
+            transportation_style: "WALKING",
         }
         this.exportString = "";
     }
@@ -50,10 +51,15 @@ class Map extends React.Component {
     }
 
     addStart() {
-        if (this.waypts.length > 0){
-            new google.maps.Marker({
-                location: this.waypts[0].location
-            })
+        if (this.waypts.length === 1){
+            this.start = new google.maps.Marker({
+                position: this.waypts[0].location,
+                map: this.map,
+                title: "start",
+            });
+            this.start.setMap(this.map);
+        } else {
+            this.start.setMap(null);
         }
     }
 
@@ -79,14 +85,10 @@ class Map extends React.Component {
                     
                     response.routes[0].legs[0].steps.forEach(step => {
                         let start = step.start_location.toString();
-                        // console.log(start);
                         start = start.slice(1, start.length - 1);
-                        // console.log(start);
 
                         let end = step.end_location.toString();
-                        // console.log(end);
                         end = end.slice(1, end.length - 1);
-                        // console.log(end);
 
                         let comb = start.concat("|", end);
 
@@ -94,7 +96,6 @@ class Map extends React.Component {
                         expStr = expStr.replace(/\s+/g, '');
                     });
 
-                    // console.log(expStr);
                     this.exportString = (expStr.slice(1));
                     directionsRenderer.setDirections(response);
                 } 
@@ -104,13 +105,6 @@ class Map extends React.Component {
     }
 
     computeTotalDistance(result) {
-        // this.exportString = this.origin.toString();
-
-        // for(let i = 0; i < this.waypts.length; i++) {
-        //     this.exportString = this.exportString.concat(this.waypts[i].location.toString())
-        // }
-
-        // this.exportString.concat(this.destination);
 
         let total = 0;
         let myroute = result.routes[0];
@@ -118,6 +112,8 @@ class Map extends React.Component {
           total += myroute.legs[i].distance.value;
         }
         total = total / 1000;
+        this.state.distance = total;
+
         document.getElementById('total').innerHTML = total + ' km';
     }
 

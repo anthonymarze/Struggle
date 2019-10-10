@@ -14,6 +14,11 @@ class User < ApplicationRecord
     foreign_key: :author_id,
     class_name: 'Route'
 
+    has_many :activities,
+    primary_key: :id,
+    foreign_key: :athlete_id,
+    class_name: 'Activity'
+
     def self.generate_session_token
         SecureRandom::urlsafe_base64(16)
     end

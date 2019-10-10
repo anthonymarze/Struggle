@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+// import Feed from '../feed/feed';
+// import ActivitiesIndex from '../activities/activities_index';
 
 class Dashboard extends React.Component {
     constructor(props) {
@@ -23,6 +25,9 @@ class Dashboard extends React.Component {
                             <div className="routes-link">
                                 <Link to={"/routes"}>Routes</Link>
                             </div>
+                            <div className="routes-link">
+                                <Link to={"/activities"}>Activities</Link>
+                            </div>
                         </div>
                         
                         <nav>
@@ -31,6 +36,8 @@ class Dashboard extends React.Component {
                     </div>
                 </header>
                 <div className="dash-body">
+                    <div className="feed-content">
+                    </div>
                 </div>
             </div>
         )

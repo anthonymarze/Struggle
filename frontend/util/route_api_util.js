@@ -20,3 +20,10 @@ export const createRoute = (route) => {
         data: {route}
     })
 };
+
+export const fetchUserRoutes = (author_id) => {
+    return $.ajax({
+        method: 'GET',
+        url: `api/routes?author_id=${author_id}`
+    })
+}

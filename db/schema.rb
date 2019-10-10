@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191006174750) do
+ActiveRecord::Schema.define(version: 2019_10_10_131324) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: :cascade do |t|
+    t.float "distance"
+    t.time "duration"
+    t.integer "elevation"
+    t.string "sport", null: false
+    t.datetime "date_and_time"
+    t.string "title", null: false
+    t.text "description"
+    t.string "exertion"
+    t.integer "route_id"
+    t.integer "athlete_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["athlete_id"], name: "index_activities_on_athlete_id"
+    t.index ["route_id"], name: "index_activities_on_route_id"
+  end
 
   create_table "routes", force: :cascade do |t|
     t.string "name", null: false
@@ -21,6 +38,9 @@ ActiveRecord::Schema.define(version: 20191006174750) do
     t.integer "author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "distance", null: false
+    t.integer "elevation", null: false
+    t.string "transportation_style", null: false
     t.index ["author_id"], name: "index_routes_on_author_id"
     t.index ["name", "author_id"], name: "index_routes_on_name_and_author_id", unique: true
   end

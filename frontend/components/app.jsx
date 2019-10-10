@@ -4,8 +4,10 @@ import LoginFormContainer from './session_form/login_form_container';
 import SignupFormContainer from './session_form/signup_form_container';
 import CreateProfileFormContainer from './create_profile_form/create_profile_form_container';
 import DashboardContainer from './dashboard/dashboard_container';
-import RoutesContainer from './routes/routes_container';
+import RoutesIndexContainer from './routes/routes_index_container';
 import NewRoutesContainer from './routes/new_routes_container';
+import ActivitiesIndexContainer from './activities/activities_index_container';
+import NewActivityFormContainer from './new_activity_form/new_activity_form_container';
 import Splash from './splash';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
@@ -17,7 +19,9 @@ const App = () => {
                 <AuthRoute exact path="/signup" component={SignupFormContainer} />
                 <ProtectedRoute exact path="/dashboard" component={DashboardContainer} />
                 <ProtectedRoute exact path="/routes/new" component={NewRoutesContainer} />
-                <ProtectedRoute exact path="/routes" component={RoutesContainer} />
+                <ProtectedRoute exact path="/routes" component={RoutesIndexContainer} />
+                <ProtectedRoute exact path="/activities" component={ActivitiesIndexContainer} />
+                <ProtectedRoute exact path="/activities/new" component={NewActivityFormContainer} />
                 <Route exact path="/signup/onboarding" component={CreateProfileFormContainer} />
                 <Splash/>
             </Switch>

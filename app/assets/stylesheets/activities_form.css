@@ -1,0 +1,86 @@
+.activities-form-main {
+    max-width: 848px;
+    margin-top: 30px;
+    margin-bottom: 80px;
+    background-color: #fff;
+}
+
+.activities-form-h1 {
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 41px;
+    margin-top: 0;
+    margin-bottom: 9px;
+}
+
+.activities-form-fieldsets {
+    display: inline;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    padding-right: 30px;
+}
+
+.activities-form-fieldsets label {
+    color: #2d2d32;
+    font-size: 12px;
+    margin-top: 0;
+}
+
+.activities-form-fieldsets input {
+    box-sizing: border-box;
+    font-size: 14px;
+    height: 34px;
+    background-color: #fff;
+    border: 1px solid #ccccd1;
+    color: #666;
+    line-height: 1.4em;
+    text-align: center;
+    padding: 0px 10px;
+    margin-top: 5px;
+    width: 240px;
+}
+
+.activities-form-fieldsets textarea {
+    box-sizing: border-box;
+    font-size: 14px;
+    background-color: #fff;
+    border: 1px solid #ccccd1;
+    color: #666;
+    text-align: left;
+    padding: 10px;
+    margin-top: 5px;
+    width: 510px;
+    height: 125px;
+    resize: vertical;
+    overflow: auto;
+    vertical-align: top;
+    font-weight: 200;
+    min-height: 3.6em;
+    line-height: 1.2em;
+}
+
+.title-top {
+    margin-top: 15px;
+}
+
+#title-input {
+    width: 510px;
+    text-align: left;
+}
+
+.activities-form-fieldsets input:focus {
+    outline: none;
+    border: 1px solid #397fb6;
+}
+
+.activities-form-fieldsets textarea:focus {
+    outline: none;
+    border: 1px solid #397fb6;
+}
+
+.activities-form-hr {
+    margin: 30px 0;
+    border: none;
+    border-top: 1px solid #ccccd1;
+}

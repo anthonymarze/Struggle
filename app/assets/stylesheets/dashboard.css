@@ -26,7 +26,7 @@
     background-color: #fc4c02;
     border: 0;
     cursor: pointer;
-    padding: 6px 16px;
+    padding: 9px 14px;
     border-radius: 4px;
 }
 
@@ -41,8 +41,21 @@
     display: block;
     height: 1024px;
     width: 100%;
+    align-items: center;
 }
 
 .opc {
     filter: brightness(50%);
+}
+
+.feed-content {
+    width: 50%;
+    height: 1024;
+    padding: 0px 16px;
+}
+
+.feedbox {
+    margin-top: 12px;
+    margin-bottom: 12px;
+    background-color: #fff;
 }

@@ -30,6 +30,6 @@ class Api::RoutesController < ApplicationController
     private
 
     def route_params
-        params.require(:route).permit(:name, :coordinate_string, :author_id)
+        params.require(:route).permit(:name, :coordinate_string, :author_id, :distance, :elevation, :transportation_style)
     end
 end
