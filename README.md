@@ -23,6 +23,9 @@ Things you may want to cover:
 
 # Struggle 2000
 
+![](https://github.com/anthonymarze/Struggle/tree/master/app/assets/images/norseman2cocklebiddy.png)
+![](https://github.com/anthonymarze/Struggle/tree/master/app/assets/images/stomp2zion.png)
+
 ## Overview
 
 Struggle 2000 lets you create your own custom running routes and activities.
@@ -34,7 +37,6 @@ You can view your aggregated activities and routes to see your progress over tim
 
 struggle 2000 runs on a PRRRR stack:
 
-P - Postgres is the database being used to store user information, route data, and activity data
-RR - Ruby on Rails is the backend component which handles requests to the database and formats the data sent to the frontend
-RR - React and Redux are the frontend components which maintain frontend state and render the individual pages a viewer sees when navigating the site
-
+P - Postgres is the database being used to store user information, route data, and activity data  
+RR - Ruby on Rails is the backend component which handles requests to the database and formats the data sent to the frontend  
+RR - React and Redux are the frontend components which maintain frontend state and render the individual pages a viewer sees when navigating the site  
