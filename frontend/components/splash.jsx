@@ -11,7 +11,7 @@ class Splash extends React.Component {
             password: 'password',
             first_name: 'Demo',
             last_name: 'User',
-            birthday: new Date('1998-04-07'),
+            birthday: new Date('2000-01-01'),
             gender: 'Female',
         }
 
