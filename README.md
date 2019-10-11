@@ -39,7 +39,7 @@ struggle 2000 runs on a PRRRR stack:
 ## Feature Highlights
 
 
-### * Route Index
+### Route Index
 
 Displaying route maps implements a completely separate API from the route creator. This static maps API
 conveniently takes in a string of concatinated coordinates separated by a | character to display routes
@@ -51,7 +51,7 @@ route display tiles look like the following:
 ![](app/assets/images/norseman2cocklebiddy.png)
 ![](app/assets/images/stomp2zion.png)
 
-### * Activity Index
+### Activity Index
 
 Displaying the index of all of a users activities is another important feature.  This tabled display allows
 a user to compare their stats for all of their recorded activities over time.  They are presented in an clean
@@ -109,3 +109,26 @@ Below are some specific parts of the project I feel particularly proud of:
     This piece iterates through a user's activities in reverse order and returns
     a list of most recent activities (since the activities array is populated in order
     of creation).  These li elements are display in the footers thorughout the project.
+
+## Future Implementaions
+
+* Add support for extra datatypes in the form.  Right now, only distance and elevation have
+reliable data input fields.  This will be extended to duration, exertion, and date.
+
+* Improve map editor stability.  Clearing routes in the route editor requires a browser
+refresh to edit again after clearing.  Additionally, altering coordinates by dragging route waypoints should persist
+in the database.
+
+* Adding location search to route creation.  Location search is a separate google api that
+can search map coordinates based on location names.  This will make creating route much more
+intuitive to users.
+
+* Adding user feed to dashboard.  A user should be directed to their feed upon login which
+displays all of their routes and acivties ordered by most recent.
+
+* Adding individual show pages to activities and routes.  These show pages will incorporate
+more detailed information like elevtion profile maps and activity comments.
+
+* Connecting Route and Activity data.  A user should be able to assign a workout to a specific route.
+This way they already know the distance and elevation, and can compare time and exertion against previous
+attempts at that route.
