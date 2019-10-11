@@ -2,13 +2,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-// import Feed from '../feed/feed';
+import Feed from '../feed/feed';
 // import ActivitiesIndex from '../activities/activities_index';
 
 class Dashboard extends React.Component {
     constructor(props) {
         super(props);
+        this.props.fetchUserActivities(this.props.session.id);
+        this.props.fetchUserRoutes(this.props.session.id);
     }
+
+    // componentWillMount() {
+    //     this.props.fetchUserActivities(this.props.session.id);
+    //     debugger
+    // }
 
     render() {
         return(
@@ -22,10 +29,10 @@ class Dashboard extends React.Component {
                             <div>
                                 <FontAwesomeIcon icon={faSearch}/>
                             </div>
-                            <div className="routes-link">
+                            <div className="routes-fake-link">
                                 <Link to={"/routes"}>Routes</Link>
                             </div>
-                            <div className="routes-link">
+                            <div className="routes-fake-link">
                                 <Link to={"/activities"}>Activities</Link>
                             </div>
                         </div>
@@ -37,6 +44,7 @@ class Dashboard extends React.Component {
                 </header>
                 <div className="dash-body">
                     <div className="feed-content">
+                        <Feed {...this.props} />
                     </div>
                 </div>
             </div>

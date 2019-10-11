@@ -12,7 +12,7 @@ class NewActivityForm extends React.Component {
             elevation: null,
             sport: "Run",
             date_and_time: null,
-            title: "Run",
+            title: "My Run",
             description: "",
             exertion: null,
         }

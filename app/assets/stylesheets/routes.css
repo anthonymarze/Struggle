@@ -244,3 +244,7 @@
     cursor: default;
     margin-top: 10px;
 }
+
+.routes-fake-link a:hover {
+    color: #f34902;
+}

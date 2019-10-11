@@ -13,6 +13,16 @@ class SessionForm extends React.Component {
             birthday: '',
             gender: '',
         }
+
+        this.demoUser = {
+            email: 'user@demo.edu',
+            password: 'password',
+            first_name: 'Demo',
+            last_name: 'User',
+            birthday: new Date('1998-04-07'),
+            gender: 'Female',
+        }
+
         this.handleSubmit = this.handleSubmit.bind(this);
         this.update = this.update.bind(this);
         this.renderErrors = this.renderErrors.bind(this);

@@ -151,10 +151,11 @@ class Map extends React.Component {
             <div id="map-display-container">
                 <div id="top-panel">
                     <div className="map-inputs">
-                        <button onClick={this.clearWaypoints}>Clear</button>
+                        <button className="clear-btn" onClick={this.clearWaypoints}>Clear Route</button>
                     </div>
                     <form onSubmit={this.handleSubmit}>
-                        <input className="txt"
+                        <label className="route-txt">Route Name:</label>
+                        <input className="map-txt"
                             onChange={this.update('name')}
                             type="text"
                             value={this.state.name}

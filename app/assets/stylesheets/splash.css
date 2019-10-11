@@ -131,3 +131,27 @@ html body {
 #logo-w p {
     color: #81846b
 }
+
+#g-r-l {
+    background-color: #2d2d32;
+}
+
+#demo-btn {
+    height: 200px;
+    background-color: yellow;
+    cursor: pointer;
+    border: 2px solid peachpuff;
+    border-radius: 50px;
+    margin-bottom: 50px;
+    font-family: Arial;
+    font-size: 50px;
+    font-weight: boldest;
+    color: rebeccapurple;
+}
+
+#demo-btn:hover {
+    box-shadow: 0 0px 50px 0 rgb(255, 84, 212);
+    background-color: greenyellow;
+    color: orangered;
+    transition: 0.3s;
+}

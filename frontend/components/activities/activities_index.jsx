@@ -25,8 +25,14 @@ class ActivitiesIndex extends React.Component {
 
     render() {
         let i = 1;
-        let cName = ""
+        let cName = "";
+        let distance = null;
+        let duration = null;
+        let elevation = null;
+        let title = null;
+
         const activities = this.props.activities.map(activity => {
+            
             if(i % 2 === 0){
                 cName = "table-row-dark"
                 i++
@@ -34,7 +40,17 @@ class ActivitiesIndex extends React.Component {
                 cName = "table-row-light"
                 i++
             }
+            
+            if (activity.distance !== null) {
+                activity.distance += " km"
+            }
+            
+            if (activity.elevation !== null) {
+                activity.elevation += " m"
+            }
+
             return(
+                
                 <tr key={activity.id} className={cName}>
                     <td>{activity.sport}</td>
                     <td>{activity.date}</td>
@@ -44,6 +60,13 @@ class ActivitiesIndex extends React.Component {
                     <td>{activity.elevation}</td>
                 </tr>
             )
+        })
+
+        const activitiesTitles = this.props.activities.reverse().map(activity => {
+            if (i < 6)
+            i++
+
+            return <li>{activity.title}</li>
         })
         return (
             <div>
@@ -95,6 +118,7 @@ class ActivitiesIndex extends React.Component {
                         <div className="route-footer-activities">
                             <h3>Your Recent Activities</h3>
                             <ul>
+                                {activitiesTitles}
                             </ul>
                         </div>
                         <div>
