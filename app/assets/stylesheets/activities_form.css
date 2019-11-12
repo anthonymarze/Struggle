@@ -84,3 +84,29 @@
     border: none;
     border-top: 1px solid #ccccd1;
 }
+
+#sub-duration {
+    width: 80px;
+}
+
+#sub-duration-mid {
+    width: 80px;
+    border-right: 0;
+    border-left: 0;
+}
+
+.placeholder {
+    position: relative;
+    display: inline;
+}
+
+.placeholder::after
+{
+    position: absolute;
+    right: 10px;
+    top: 0px;
+    content: attr(data-placeholder);
+    pointer-events: none;
+    font-size: 12px;
+    color: #CCCCD1;
+}

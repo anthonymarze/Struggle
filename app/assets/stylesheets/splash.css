@@ -147,6 +147,13 @@ html body {
     font-size: 50px;
     font-weight: boldest;
     color: rebeccapurple;
+    perspective: 300px;
+    animation: animate-z 5s infinite linear;
+}
+
+@keyframes animate-z {
+      0% { transform: rotateZ(0); }
+      100% { transform: rotateZ(360deg); }
 }
 
 #demo-btn:hover {

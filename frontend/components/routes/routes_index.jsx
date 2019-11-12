@@ -12,13 +12,16 @@ class RoutesIndex extends React.Component {
         this.createNewRoutes = this.createNewRoutes.bind(this);
         this.routeNames = [];
         this.state = {
-            mounted: false
+            mounted: false,
+            containerHeight: (Math.floor(this.props.routes.length / 4) * 386) + 500
         }
     }
 
     componentDidMount() {
         this.props.fetchUserRoutes(this.props.session.id).then(
-            () => this.setState({mounted: true})
+            () => this.setState({mounted: true,
+                containerHeight: (Math.floor(this.props.routes.length / 4) * 386) + 500
+            })
         )
     }
 
@@ -67,11 +70,11 @@ class RoutesIndex extends React.Component {
                         <button className="logout-btn" onClick={this.createNewRoutes}>Create New Routes</button>
                     </div>
                     <div className="rsh-2">
-                        <p>Learn more about <a href="https://www.youtube.com/watch?v=S02BHmWPZNs">sharing & exporting routes</a> to a variety of devices</p>
+                        <p>Learn more about <a href="https://www.youtube.com/watch?v=S02BHmWPZNs" target="_">sharing & exporting routes</a> to a variety of devices</p>
                         <img src="https://d3nn82uaxijpm6.cloudfront.net/assets/routes/route-list-mobile-upsell-c1aec554d010e3c86411ad560615802162318875f086d1e3ed4850d6c7014b8f.png" />
                     </div>
                 </div>
-                <div className="route-body container" id="no-pad">
+                <div className="route-body container" id="no-pad" style={{ height: this.state.containerHeight }}>
                     <div className="type-select">
                         <form className="type-select-form">
                             <button className="cycle-btn">Cycling</button>

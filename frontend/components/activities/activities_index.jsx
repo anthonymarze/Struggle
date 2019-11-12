@@ -42,11 +42,11 @@ class ActivitiesIndex extends React.Component {
             }
             
             if (activity.distance !== null) {
-                activity.distance += " km"
+                distance = activity.distance + " km"
             }
             
             if (activity.elevation !== null) {
-                activity.elevation += " m"
+                elevation = activity.elevation + " m"
             }
 
             return(
@@ -55,9 +55,9 @@ class ActivitiesIndex extends React.Component {
                     <td>{activity.sport}</td>
                     <td>{activity.date}</td>
                     <td>{activity.title}</td>
-                    <td>{activity.time}</td>
-                    <td>{activity.distance}</td>
-                    <td>{activity.elevation}</td>
+                    <td>{activity.duration}</td>
+                    <td>{distance}</td>
+                    <td>{elevation}</td>
                 </tr>
             )
         })

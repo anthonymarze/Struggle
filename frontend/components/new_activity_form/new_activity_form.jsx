@@ -37,6 +37,11 @@ class NewActivityForm extends React.Component {
     }
 
     render() {
+        const duration = "01:00:00";
+        const h = duration.slice(0,2);
+        const min = duration.slice(3,5);
+        const s = duration.slice(6,8);
+
         return (
             <div>
                 <header className="nav-header">
@@ -78,11 +83,32 @@ class NewActivityForm extends React.Component {
                             <fieldset className="activities-form-fieldsets">
                                 <label>Duration</label>
                                 <br/>
-                                <input
-                                    onChange={this.update('duration')}
-                                    type="text"
-                                    value={this.state.duration}>
-                                </input>
+                                <div className="placeholder" data-placeholder="hr">
+                                    <input
+                                        id="sub-duration"
+                                        onChange={this.update('duration')}
+                                        type="text"
+                                        value={h}>
+                                    </input> 
+                                </div>
+                                
+                                <div className="placeholder" data-placeholder="min">
+                                    <input
+                                        id="sub-duration-mid"
+                                        onChange={this.update('duration')}
+                                        type="text"
+                                        value={min}>
+                                    </input>
+                                </div>
+
+                                <div className="placeholder" data-placeholder="s">
+                                    <input
+                                        id="sub-duration"
+                                        onChange={this.update('duration')}
+                                        type="text"
+                                        value={s}>
+                                    </input>
+                                </div>
                             </fieldset>
 
                             <fieldset className="activities-form-fieldsets">

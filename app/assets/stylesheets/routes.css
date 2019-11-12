@@ -58,7 +58,7 @@
 
 .route-body {
     width: 100%;
-    height: 500px;
+    margin-bottom: 50px;
     align-items: center;
     max-width: 1248px;
 }
@@ -96,6 +96,7 @@
 .static-map-container {
     display: flex;
     justify-content: flex-start;
+    flex-wrap: wrap;
     height: 370px;
 }
 
@@ -112,10 +113,11 @@
 }
 
 #metadata {
-    width: 300px;
+    width: 295px;
     height: 100%;
     margin: 0;
     margin-right: 16px;
+    margin-bottom: 16px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
