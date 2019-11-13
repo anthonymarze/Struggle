@@ -57,17 +57,3 @@
     flex-direction: column;
     justify-content: flex-start;
 }
-
-.feedbox {
-    margin-bottom: 12px;
-    background-color: #fff;
-    width: 640px;
-    border-top-right-radius: 4px;
-    border-top-left-radius: 4px;
-}
-
-.feedbox img{
-    width: 100%;
-    border-top-right-radius: 4px;
-    border-top-left-radius: 4px;
-}

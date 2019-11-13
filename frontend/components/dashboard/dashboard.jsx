@@ -8,16 +8,25 @@ import Feed from '../feed/feed';
 class Dashboard extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            mounted: false
+        }
         this.props.fetchUserActivities(this.props.session.id);
         this.props.fetchUserRoutes(this.props.session.id);
     }
 
-    // componentWillMount() {
-    //     this.props.fetchUserActivities(this.props.session.id);
-    //     debugger
-    // }
+    componentDidMount() {
+        this.props.fetchUserRoutes(this.props.session.id).then(
+            () => this.setState({
+                mounted: true
+            })
+        )
+    }
 
     render() {
+        if (this.state.mounted === false) {
+            return null
+        }
         return(
             <div>
                 <header className="nav-header">

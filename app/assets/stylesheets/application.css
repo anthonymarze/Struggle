@@ -20,6 +20,7 @@
  *= require new_routes
  *= require activities_form
  *= require activities_index
+ *= require feed
  */
 
  body {

@@ -5,6 +5,7 @@ import SignupFormContainer from './session_form/signup_form_container';
 import CreateProfileFormContainer from './create_profile_form/create_profile_form_container';
 import DashboardContainer from './dashboard/dashboard_container';
 import RoutesIndexContainer from './routes/routes_index_container';
+import RoutesShowContainer from './routes/routes_show_container';
 import NewRoutesContainer from './routes/new_routes_container';
 import ActivitiesIndexContainer from './activities/activities_index_container';
 import NewActivityFormContainer from './new_activity_form/new_activity_form_container';
@@ -20,6 +21,7 @@ const App = () => {
                 <AuthRoute exact path="/signup/onboarding" component={CreateProfileFormContainer} />
                 <ProtectedRoute exact path="/dashboard" component={DashboardContainer} />
                 <ProtectedRoute exact path="/routes/new" component={NewRoutesContainer} />
+                <ProtectedRoute exact path="/routes/show" component={RoutesShowContainer} />
                 <ProtectedRoute exact path="/routes" component={RoutesIndexContainer} />
                 <ProtectedRoute exact path="/activities" component={ActivitiesIndexContainer} />
                 <ProtectedRoute exact path="/activities/new" component={NewActivityFormContainer} />

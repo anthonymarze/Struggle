@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import StaticMapItems from './static_map_items';
 
 class StaticMap extends React.Component {
@@ -23,4 +24,4 @@ class StaticMap extends React.Component {
     }
 }
 
-export default StaticMap;
+export default withRouter(StaticMap);
