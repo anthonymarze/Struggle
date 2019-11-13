@@ -9,6 +9,7 @@
     width: 100%;
     border-top-right-radius: 4px;
     border-top-left-radius: 4px;
+    box-shadow: 0px 8px 24px rgba(13,13,18,0.04);
 }
 
 .subFeedBox {
@@ -18,7 +19,107 @@
 
 .feed-item-container {
     background-color: #fff;
-    height: 200px;
+    height: 209px;
     width: 100%;
-    margin: 20px 0;
+    margin-top: 12px;
+    box-shadow: 0px 8px 24px rgba(13,13,18,0.04);
+    border-radius: 4px;
+}
+
+.entry-header {
+    padding-right: 88px;
+    padding-top: 16px;
+    height: 56px;
+    border-radius: 4px;
+}
+
+.entry-body {
+    padding: 0 88px;
+    margin-bottom: 16px;
+    margin-top: 8px;
+    height: 90px;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: space-between; */
+}
+
+.entry-body h2 {
+    margin: 0;
+    margin-bottom: 8px;
+}
+
+.entry-footer {
+    display: block;
+    bottom: 0px;
+    height: 59px;
+    padding: 12px 0;
+    margin: 0 24px;
+    border-top: solid 1px #e6e6eb;
+    border-radius: 4px;
+}
+
+.entry-body-data {
+    display: block;
+}
+
+.entry-body-data-piece {
+    display: inline-block;
+    margin-right: 16px;
+    padding-right: 16px;
+    border-right: solid 1px #e6e6eb;
+    width: fit-content;
+}
+
+.entry-body-data-piece p {
+    margin: 0;
+}
+
+.entry-body-label {
+    font-size: 12px;
+    font-weight: 400;
+    color: #606065;
+    line-height: 1.2;
+}
+
+.entry-body-numbers {
+    padding-top: 4px;
+    font-size: 20px;
+    color: #2D2D32;
+    font-weight: 400;
+    line-height: 1;
+    white-space: nowrap;
+    -webkit-font-smoothing: antialiased;
+}
+
+.entry-user-name {
+    font-size: 14px;
+    color: #242428;
+    font-weight: 700;
+    margin: 0px;
+}
+
+.entry-user-date {
+    font-size: 11px;
+    color: #666666;
+    margin: 0px;
+}
+
+.user-info-box {
+    display: inline-block;
+}
+
+#feed-circle {
+  height: 40px;
+  width: 40px;
+  margin: 0px 24px;
+}
+
+#feed-user-name {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    color: #F5F5FA;
+    font-size: 22px;
+    padding-top: 4px;
 }

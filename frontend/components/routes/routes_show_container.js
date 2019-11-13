@@ -2,11 +2,11 @@ import { connect } from 'react-redux';
 import RoutesShow from './routes_show';
 import { fetchRoute, fetchUserRoutes } from '../../actions/route_actions'
 
-const msp = ({ }) => {
-    return ({
+// const msp = ({ }) => {
+//     return ({
        
-    })
-}
+//     })
+// }
 
 const mdp = dispatch => {
     return ({
@@ -15,4 +15,4 @@ const mdp = dispatch => {
     })
 }
 
-export default connect(msp, mdp)(RoutesShow)
+export default connect(null, mdp)(RoutesShow)

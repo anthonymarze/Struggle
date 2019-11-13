@@ -1,3 +1,7 @@
+.dash-viewport {
+    height: 100vh;
+}
+
 .routes-link a {
     font-size: 14px;
     line-height: 18px;
@@ -40,7 +44,7 @@
     background-color: #f5f5fa;
     display: flex;
     justify-content: center;
-    height: 1024px;
+    height: 100%;
     width: 100%;
 }
 

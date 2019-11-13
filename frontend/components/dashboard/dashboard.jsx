@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import Feed from '../feed/feed';
 // import ActivitiesIndex from '../activities/activities_index';
 
@@ -28,15 +27,15 @@ class Dashboard extends React.Component {
             return null
         }
         return(
-            <div>
+            <div className="dash-viewport">
                 <header className="nav-header">
                     <div className="nav-header-content container dash-nav-head">
                         <div>
                             <div className="splash-logo">
                                 <Link to={"/"}>Struggle</Link>
                             </div>
-                            <div>
-                                <FontAwesomeIcon icon={faSearch}/>
+                            <div className="routes-fake-link">
+                                <p>Dashboard</p>
                             </div>
                             <div className="routes-fake-link">
                                 <Link to={"/routes"}>Routes</Link>

@@ -112,6 +112,33 @@
     position: relative;
     padding-top: 50px;
 }
+
+.circle {
+  height: 40px;
+  width: 40px;
+  background-color: rgb(22, 138, 41);
+  border-radius: 50%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.circle-nav {
+    margin-left: 50px;
+}
+
+.circle-user-name {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    color: #F5F5FA;
+    font-size: 20px;
+    padding-top: 2px;
+}
 /* #map-display-container {
     height: 100vh;
 } */
+
+/* <span className="circle circle-nav">
+                                <p className="circle-user-name">{this.props.currentUser.first_name[0]}</p>
+                            </span> */

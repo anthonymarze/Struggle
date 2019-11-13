@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import StaticMap from '../static_map/static_maps';
 
 class RoutesIndex extends React.Component {
@@ -48,8 +47,8 @@ class RoutesIndex extends React.Component {
                             <div className="splash-logo">
                                 <Link to={"/"}>Struggle</Link>
                             </div>
-                            <div>
-                                <FontAwesomeIcon icon={faSearch} />
+                            <div className="routes-fake-link">
+                                <Link to={"/dashboard"}>Dashboard</Link>
                             </div>
                             <div className="routes-fake-link">
                                 <p>Routes</p>

@@ -13,7 +13,9 @@ class Feed extends React.Component {
         const feed = [];
 
         for (let i = 0; i < this.props.activities.length; i++) {
-            feed.push(<FeedItems key={this.props.activities[i].id.toString()} props={this.props.activities[i]} />)
+            feed.push(<FeedItems key={this.props.activities[this.props.activities.length - 1 - i].id.toString()}
+                props={this.props.activities[this.props.activities.length - 1 - i]}
+            currentUser = {this.props.currentUser}/>)
         }
         return feed;
     }
