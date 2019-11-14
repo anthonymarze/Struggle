@@ -15,7 +15,7 @@ class ActivitiesIndex extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchUserActivities(this.props.session.id)
+        this.props.fetchUserActivities(this.props.session.id);
     }
 
     createNewActivity() {
@@ -26,6 +26,7 @@ class ActivitiesIndex extends React.Component {
         let i = 1;
         let cName = "";
         let distance = null;
+        let date = null;
         let duration = null;
         let elevation = null;
         let title = null;
@@ -48,11 +49,15 @@ class ActivitiesIndex extends React.Component {
                 elevation = activity.elevation + " m"
             }
 
+            if (activity.date_and_time !== null) {
+                date = activity.date_and_time.slice(0, 10);
+            }
+
             return(
                 
                 <tr key={activity.id} className={cName}>
                     <td>{activity.sport}</td>
-                    <td>{activity.date}</td>
+                    <td>{date}</td>
                     <td>{activity.title}</td>
                     <td>{activity.duration}</td>
                     <td>{distance}</td>

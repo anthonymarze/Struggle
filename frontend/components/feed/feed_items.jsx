@@ -1,6 +1,29 @@
 import React from "react";
 
 class FeedItems extends React.Component {
+    constructor(props) {
+        super(props);
+        this.hour = 0;
+        this.min = 0;
+        this.sec = 0;
+        // this.hour = this.props.props.duration.slice(11, 13);
+        // this.min = this.props.props.duration.slice(14, 16);
+        // this.sec = this.props.props.duration.slice(17, 19);
+        this.elevation = this.props.props.elevation;
+        this.distance = this.props.props.distance;
+        
+        // if(this.props.props.distance === null){
+        //     this.hour = 0;
+        //     this.min = 0;
+        //     this.sec = 0;
+        // }
+        if (this.props.props.elevation === null) {
+            this.elevation = 0;
+        }
+        if (this.props.props.distance === null) {
+            this.distance = 0;
+        }
+    }
     render() {
         return(
             <div className="feed-item-container">
@@ -21,7 +44,7 @@ class FeedItems extends React.Component {
                                 Distance
                             </p>
                             <p className="entry-body-numbers">
-                                {this.props.props.distance}mi
+                                {this.distance}mi
                             </p>
                         </div>
                         <div className="entry-body-data-piece">
@@ -29,7 +52,7 @@ class FeedItems extends React.Component {
                                 Time
                             </p>
                             <p className="entry-body-numbers">
-                                {this.props.props.time}m
+                                {this.min}m {this.sec}s
                             </p>
                         </div>
                         <div className="entry-body-data-piece">
@@ -37,7 +60,7 @@ class FeedItems extends React.Component {
                                 Elevation
                             </p>
                             <p className="entry-body-numbers">
-                                {this.props.props.elevation}m
+                                {this.elevation}m
                             </p>
                         </div>
                     </div>

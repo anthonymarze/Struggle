@@ -1,19 +1,70 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class NewActivityForm extends React.Component {
     constructor(props) {
         super(props)
+        this.date = new Date();
+        this.year = this.date.getFullYear();
+        this.month = this.date.getMonth() + 1;
+        this.monthStr = `${this.month}`;
+        // this.updateDate = this.updateDate.bind(this);
+        // this.updateTime = this.updateTime.bind(this);
+        // this.updateHour = this.updateHour.bind(this);
+        // this.updateMin = this.updateMin.bind(this);
+        // this.updateSec = this.updateSec.bind(this);
+
+        if(this.month < 10){
+            this.monthStr = "0" + this.monthStr;
+        }
+        this.day = this.date.getDate();
+        this.dayStr = `${this.day}`;
+        if (this.day < 10) {
+            this.dayStr = "0" + this.dayStr;
+        }
+        this.dateStr = `${this.year}-${this.monthStr}-${this.dayStr}`
+
+        this.hours = this.date.getHours();
+        this.hoursStr = `${this.hours}`;
+        if (this.hours % 12 === 0) {
+            this.hoursStr = "12";
+        } else {
+            this.hoursStr = `${this.hours % 12}`;
+        }
+
+        this.minutes = this.date.getMinutes() + 1;
+        this.minutesStr = `${this.minutes}`;
+        if (this.minutes < 10) {
+            this.minutesStr = "0" + this.minutesStr;
+        }
+
+        this.timeOfDay = "";
+        if (this.hours < 12) {
+            this.timeOfDay = "AM";
+        } else if (this.hours >= 12) {
+            this.timeOfDay = "PM";
+        }
+
+        this.timeStr = `${this.hoursStr}:${this.minutesStr} ${this.timeOfDay}`;
+
+        this.dHour = "01";
+        this.dMin = "00";
+        this.dSec = "00";
+
         this.state = {
             distance: null,
-            duration: null,
+            duration: `${this.dHour}:${this.dMin}:${this.dSec}`,
             elevation: null,
             sport: "Run",
-            date_and_time: null,
+            date_and_time: this.dateStr + "T" + this.timeStr,
             title: "My Run",
             description: "",
             exertion: null,
+            dateStr: this.dateStr,
+            timeStr: this.timeStr,
+            dHour: this.dHour,
+            dMin: this.dMin,
+            dSec: this.dSec
         }
         this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -24,8 +75,66 @@ class NewActivityForm extends React.Component {
         })
     }
 
+    // updateDate(e) {
+    //     e.preventDefault();
+    //     this.dateStr = e.currentTarget.value;
+    //     this.setState({
+    //         dateStr: this.dateStr
+    //     })
+    // }
+
+    // updateTime(e) {
+    //     e.preventDefault();
+    //     this.timeStr = e.currentTarget.value;
+    //     this.setState({
+    //         timeStr: this.timeStr
+    //     })
+    // }
+
+    // updateHour(e) {
+    //     e.preventDefault();
+    //     this.dHour = e.currentTarget.value;
+    //     this.setState({
+    //         duration: this.dHour + this.state.duration.slice(2)
+    //     })
+    // }
+
+    // updateMin(e) {
+    //     e.preventDefault();
+    //     this.dMin = e.currentTarget.value;
+    //     this.setState({
+    //         duration: this.state.duration.slice(0, 3) + this.dMin + this.state.duration.slice(5)
+    //     })
+    // }
+
+    // updateSec(e) {
+    //     debugger
+    //     e.preventDefault();
+    //     this.dSec = e.currentTarget.value;
+    //     this.setState({
+    //         duration: this.state.duration.slice(0, 6) + this.dSec
+    //     })
+    // }
+
+    // updateDate() {
+    //     return (e) => {
+    //         this.date = e.currentTarget.value;
+    //     }
+    // }
+
     handleSubmit(e) {
         e.preventDefault();
+        const dHour = this.state.dHour;
+        const dMin = this.state.dMin;
+        const dSec = this.state.dSec;
+        const dateStr = this.state.dateStr;
+        const timeStr = this.state.timeStr;
+        debugger
+        this.setState({
+            [duration]: `${dHour}:${dMin}:${dSec}`,
+            [date_and_time]: dateStr + "T" + timeStr
+        })
+        debugger
         this.props.createActivity(this.state).then(
             () => this.props.history.push({ pathname: "/activities" })
         )
@@ -36,11 +145,6 @@ class NewActivityForm extends React.Component {
     }
 
     render() {
-        const duration = "01:00:00";
-        const h = duration.slice(0,2);
-        const min = duration.slice(3,5);
-        const s = duration.slice(6,8);
-
         return (
             <div>
                 <header className="nav-header">
@@ -73,9 +177,16 @@ class NewActivityForm extends React.Component {
                                 <label>Distance</label>
                                 <br/>
                                 <input
+                                    id="sub-duration-front"
                                     onChange={this.update('distance')}
                                     type="text"
                                     value={this.state.distance}>
+                                </input>
+                                <input
+                                    id="sub-duration-back"
+                                    type="text"
+                                    value="kilometers"
+                                    readonly>
                                 </input>
                             </fieldset>
 
@@ -85,27 +196,27 @@ class NewActivityForm extends React.Component {
                                 <div className="placeholder" data-placeholder="hr">
                                     <input
                                         id="sub-duration"
-                                        onChange={this.update('duration')}
+                                        onChange={this.update("dHour")}
                                         type="text"
-                                        value={h}>
+                                        value={this.state.dHour}>
                                     </input> 
                                 </div>
                                 
                                 <div className="placeholder" data-placeholder="min">
                                     <input
                                         id="sub-duration-mid"
-                                        onChange={this.update('duration')}
+                                        onChange={this.update("dMin")}
                                         type="text"
-                                        value={min}>
+                                        value={this.state.dMin}>
                                     </input>
                                 </div>
 
                                 <div className="placeholder" data-placeholder="s">
                                     <input
                                         id="sub-duration"
-                                        onChange={this.update('duration')}
+                                        onChange={this.update("dSec")}
                                         type="text"
-                                        value={s}>
+                                        value={this.state.dSec}>
                                     </input>
                                 </div>
                             </fieldset>
@@ -114,9 +225,16 @@ class NewActivityForm extends React.Component {
                                 <label>Elevation</label>
                                 <br/>
                                 <input
+                                    id="sub-duration-front"
                                     onChange={this.update('elevation')}
                                     type="text"
                                     value={this.state.elevation}>
+                                </input>
+                                <input
+                                    id="sub-duration-back"
+                                    type="text"
+                                    value="meters"
+                                    readonly>
                                 </input>
                             </fieldset>
                         </div>
@@ -136,9 +254,16 @@ class NewActivityForm extends React.Component {
                                 <label>Date & Time</label>
                                 <br/>
                                 <input
-                                    onChange={this.update('date_and_time')}
+                                    id = "sub-duration-date"
+                                    onChange={this.update('dateStr')}
+                                    type="date"
+                                    value={this.state.dateStr}>
+                                </input>
+                                <input
+                                    id="sub-duration-time"
+                                    onChange={this.update('timeStr')}
                                     type="text"
-                                    value={this.state.date_and_time}>
+                                    value={this.state.timeStr}>
                                 </input>
                             </fieldset>
                         </div>
