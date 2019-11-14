@@ -52,7 +52,7 @@ class FeedItems extends React.Component {
                                 Time
                             </p>
                             <p className="entry-body-numbers">
-                                {this.min}m {this.sec}s
+                                {this.hour}h {this.min}m {this.sec}s
                             </p>
                         </div>
                         <div className="entry-body-data-piece">

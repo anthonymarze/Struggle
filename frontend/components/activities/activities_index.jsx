@@ -53,13 +53,17 @@ class ActivitiesIndex extends React.Component {
                 date = activity.date_and_time.slice(0, 10);
             }
 
+            if (activity.duration !== null) {
+                duration = activity.duration.slice(11, 19);
+            }
+
             return(
                 
                 <tr key={activity.id} className={cName}>
                     <td>{activity.sport}</td>
                     <td>{date}</td>
                     <td>{activity.title}</td>
-                    <td>{activity.duration}</td>
+                    <td>{duration}</td>
                     <td>{distance}</td>
                     <td>{elevation}</td>
                 </tr>

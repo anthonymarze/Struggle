@@ -129,12 +129,10 @@ class NewActivityForm extends React.Component {
         const dSec = this.state.dSec;
         const dateStr = this.state.dateStr;
         const timeStr = this.state.timeStr;
-        debugger
         this.setState({
-            [duration]: `${dHour}:${dMin}:${dSec}`,
-            [date_and_time]: dateStr + "T" + timeStr
+            ["duration"]: `${dHour}:${dMin}:${dSec}`,
+            ["date_and_time"]: dateStr + "T" + timeStr
         })
-        debugger
         this.props.createActivity(this.state).then(
             () => this.props.history.push({ pathname: "/activities" })
         )
