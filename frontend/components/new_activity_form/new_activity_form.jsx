@@ -59,7 +59,7 @@ class NewActivityForm extends React.Component {
             date_and_time: this.dateStr + "T" + this.timeStr,
             title: "My Run",
             description: "",
-            exertion: null,
+            exertion: 1,
             dateStr: this.dateStr,
             timeStr: this.timeStr,
             dHour: this.dHour,
@@ -291,11 +291,17 @@ class NewActivityForm extends React.Component {
                             <fieldset className="activities-form-fieldsets">
                                 <label>Perceived Exertion</label>
                                 <br/>
-                                <input
-                                    onChange={this.update('perceived_exertion')}
-                                    type="text"
-                                    value={this.state.perceived_exertion}>
-                                </input>
+                                <div class="slidecontainer">
+                                    <input
+                                        id="exertion-input"
+                                        onChange={this.update('perceived_exertion')}
+                                        class="slider"
+                                        type="range"
+                                        min="1"
+                                        max="10"
+                                        value={this.state.perceived_exertion}>
+                                    </input>
+                                </div>
                             </fieldset>
                         </div>
                         <hr className="activities-form-hr" />

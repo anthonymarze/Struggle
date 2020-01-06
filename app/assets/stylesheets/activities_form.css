@@ -85,6 +85,10 @@
     border-top: 1px solid #ccccd1;
 }
 
+#exertion-input {
+    width: 80px;
+}
+
 #sub-duration {
     width: 80px;
 }
