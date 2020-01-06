@@ -59,7 +59,7 @@ class NewActivityForm extends React.Component {
             date_and_time: this.dateStr + "T" + this.timeStr,
             title: "My Run",
             description: "",
-            exertion: 1,
+            exertion: "1",
             dateStr: this.dateStr,
             timeStr: this.timeStr,
             dHour: this.dHour,
@@ -294,13 +294,20 @@ class NewActivityForm extends React.Component {
                                 <div class="slidecontainer">
                                     <input
                                         id="exertion-input"
-                                        onChange={this.update('perceived_exertion')}
+                                        onChange={this.update('exertion')}
                                         class="slider"
                                         type="range"
+                                        IsSnapToTickEnabled="True"
+                                        TickFrequency="1"
                                         min="1"
                                         max="10"
-                                        value={this.state.perceived_exertion}>
+                                        value={this.state.exertion}>
                                     </input>
+                                    <div id="exertion-label-box">
+                                        <p className="exertion-labels">Easy</p>
+                                        <p className="exertion-labels">Moderate</p>
+                                        <p className="exertion-labels">Hard</p>
+                                    </div>
                                 </div>
                             </fieldset>
                         </div>
